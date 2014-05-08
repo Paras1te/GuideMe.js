@@ -1,0 +1,64 @@
+.gm--overlay {
+    position: absolute;
+    left: 0; top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"; /* IE 8 */
+    filter: alpha(opacity=50); /* IE 5-7 */
+    -moz-opacity: 0.5; /* Netscape */
+    -khtml-opacity: 0.5; /* Safari 1.x */
+    opacity: 0.5; /* Good browsers */
+    z-index : 100;
+}
+
+.gm--modal {
+    position: absolute;
+    z-index : 110;
+}
+
+.gm--modal-header {
+    background-color: #0073c6;
+}
+
+.gm--modal-title {
+    padding: 5px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 12pt;
+    color: #fff;
+}
+
+.gm--modal-content {
+    padding:  5px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 10pt;
+    color: #848484;
+    border: 1px solid #cfcfcf;
+    border-top: none;
+    background-color: #fff;
+}
+
+.gm--modal-buttons-container {
+    overflow: auto;
+    margin-top: 10px;
+}
+
+.gm--modal-button {
+    min-width: 50px;
+    padding: 5px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 10pt;
+    color: #fff;
+    text-align: center;
+    background-color: #0073c6;
+    cursor: pointer; cursor: hand;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.gm--modal-button:hover {
+    background-color: #2d9df1;
+}
