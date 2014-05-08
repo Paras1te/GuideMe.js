@@ -7,10 +7,15 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+	<link rel="stylesheet" type="text/css" href="stylesheets/GuideMe.css" />
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <title>GuideMe.js by Paras1te</title>
+	<!--
+	<script type="text/javascript" src="https://rawgit.com/Paras1te/GuideMe.js/master/GuideMe.js"></script>
+    -->
+	<script type="text/javascript" src="./GuideMe.js"></script>
+	<title>GuideMe.js by Paras1te</title>
   </head>
 
   <body>
@@ -39,8 +44,8 @@
 <h3>
 <a name="simple-example" class="anchor" href="#simple-example"><span class="octicon octicon-link"></span></a>Simple Example</h3>
 
-<div class="highlight highlight-JavaScript"><pre><span class="kd">var</span> <span class="nx">guide</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GM</span><span class="p">.</span><span class="nx">Guide</span><span class="p">();</span>
-<span class="nx">guide</span><span class="p">.</span><span class="nx">addStep</span><span class="p">({</span>
+<div class="highlight highlight-JavaScript" id="step1"><pre><span class="kd">var</span> <span class="nx">guide</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GM</span><span class="p">.</span><span class="nx">Guide</span><span class="p" id="step2">();</span>
+<span class="nx">guide</span><span class="p">.</span><span class="nx">addStep</span><span class="p" id="step3">({</span>
    <span class="nx">modal</span><span class="o">:</span>
    <span class="p">{</span>
       <span class="nx">relativeTo</span><span class="o">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"element1"</span><span class="p">),</span>
@@ -48,29 +53,7 @@
       <span class="nx">content</span><span class="o">:</span> <span class="s2">"Simple text."</span>
    <span class="p">}</span>
 <span class="p">});</span>
-<span class="nx">guide</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span>
-</pre></div>
-
-<p>First we start with initializing new instance of Guide:</p>
-
-<div class="highlight highlight-JavaScript"><pre><span class="kd">var</span> <span class="nx">guide</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GM</span><span class="p">.</span><span class="nx">Guide</span><span class="p">();</span>
-</pre></div>
-
-<p>Then we add our first step with modal:</p>
-
-<div class="highlight highlight-JavaScript"><pre><span class="nx">guide</span><span class="p">.</span><span class="nx">addStep</span><span class="p">({</span>
-   <span class="nx">modal</span><span class="o">:</span>
-   <span class="p">{</span>
-      <span class="nx">relativeTo</span><span class="o">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"element1"</span><span class="p">),</span>
-      <span class="nx">title</span><span class="o">:</span> <span class="s2">"Modal Title"</span><span class="p">,</span>
-      <span class="nx">content</span><span class="o">:</span> <span class="s2">"Simple text."</span>
-   <span class="p">}</span>
-<span class="p">});</span>
-</pre></div>
-
-<p>Lastly we call our guide to start:</p>
-
-<div class="highlight highlight-JavaScript"><pre><span class="nx">guide</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span>
+<span class="nx">guide</span><span class="p">.</span><span class="nx">start</span><span class="p" id="step4">();</span>
 </pre></div>
 
 <p>That's it! This simple example shows how to create simple guide with default funcionality.</p>
@@ -86,5 +69,59 @@
         
       </div>
     </div>
+	<script type="text/javascript">
+	window.onload = function () {
+		var guide = new GM.Guide();
+		guide.addStep({ 
+						modal:
+						   {
+							   title: "Test me!",
+							   relativeTo: document.getElementById("step1"),
+							   position: "top-left",
+							   content: "This is fully functional GuideMe.js guide. Click \"Start\" to test it!",
+							   width: "240px",
+							   offsetLeft: -10,
+							   offsetTop: 122,
+							   buttons: [{ title: "Start" }]
+						   }
+					  });
+		guide.addStep({ 
+						modal:
+						   {
+							   relativeTo: document.getElementById("step2"),
+							   position: "bottom-right",
+							   content: "First we start with initializing new instance of Guide.",
+							   width: "220px",
+							   offsetLeft: 30,
+							   offsetTop: -2
+						   }
+					  });
+		guide.addStep({ 
+						modal:
+						   {
+							   relativeTo: document.getElementById("step3"),
+							   position: "bottom-right",
+							   content: "Then we add our first step with modal.",
+							   width: "160px",
+							   offsetLeft: 330,
+							   offsetTop: -2
+						   }
+					  });
+		guide.addStep({ 
+						modal:
+						   {
+							   relativeTo: document.getElementById("step4"),
+							   position: "top-right",
+							   content: "Lastly we call our guide to start.",
+							   width: "160px",
+							   offsetLeft: 30,
+							   offsetTop: 20,
+							   buttons: [{ action: function () { guide.start(); } }]
+						   }
+					  });
+	    guide.start();
+	};
+
+	</script>
   </body>
 </html>
